@@ -3,3 +3,5 @@
 .aggregate-free{color:var(--accent)}.aggregate-likely-free{color:#b3d8aa}.aggregate-likely-occupied{color:var(--unknown)}.aggregate-occupied{color:#f0a1a5}
 
 .player-name{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 7px}.player-name strong{min-width:0}.player-rank{font-size:9px;font-weight:500;color:#a6bbd4;white-space:nowrap;border:1px solid #34465c;border-radius:4px;padding:0 5px;line-height:1.6}
+
+.header-actions{display:flex;align-items:center;gap:20px}.language-switch{display:flex;border:1px solid var(--line);border-radius:7px;padding:3px;gap:2px}.language-switch a{padding:4px 9px;border-radius:4px;color:var(--muted);font-size:11px;font-weight:600;line-height:1.5}.language-switch a[aria-current=page]{background:#24453f;color:var(--accent)}.language-switch a:hover{color:var(--accent)}@media(max-width:600px){.header-actions{gap:10px}.language-switch a{padding:4px 6px;font-size:10px}.source-link span{margin-left:3px}}

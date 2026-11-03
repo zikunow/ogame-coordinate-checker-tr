@@ -1,4 +1,4 @@
-import { classifyPlayer, lookupCoordinate, summarize, aggregateStatus, findPlanets, csvCell } from './core.js?v=20261103-tr-v1';
+import { classifyPlayer, lookupCoordinate, summarize, aggregateStatus, findPlanets, csvCell } from './core.js?v=20261103-lang-v1';
 
 const $ = id => document.getElementById(id);
 const state = { config: null, manifest: null, source: null, sourceNumber: 1, playerId: null,
@@ -229,6 +229,17 @@ async function compare() {
 }
 
 $('universe').addEventListener('change', () => selectSource(Number($('universe').value)));
+document.querySelectorAll('[data-language]').forEach(link => link.addEventListener('click', () => {
+  const url = new URL(link.dataset.language === 'ru' ? './ru.html' : './', location.href);
+  url.search = location.search;
+  if (state.manifest) {
+    url.searchParams.set('universe', state.sourceNumber);
+    if (state.playerId) url.searchParams.set('player', state.playerId);
+    else url.searchParams.delete('player');
+    url.searchParams.set('targets', selectedTargets().map(t => t.number).join(','));
+  }
+  link.href = url.href;
+}));
 $('player-search').addEventListener('input', () => { state.playerId = null; clearResult(); updateButton(); $('selected-player').textContent = 'Öneri listesinden bir oyuncu seç.'; showOptions(); });
 $('player-search').addEventListener('focus', showOptions);
 $('player-search').addEventListener('blur', closeOptions);

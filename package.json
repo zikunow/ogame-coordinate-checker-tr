@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.js",
-    "check": "node --check site/app.js && node --check site/core.js",
-    "dev": "python3 -m http.server 3000 --directory site"
+    "check": "node --check site/app.js && node --check site/core.js && node --check site/app.ru.js && node --check site/core.ru.js",
+    "dev": "python3 -m http.server 3000 --directory site",
+    "locales": "python3 scripts/build_locales.py"
   }
 }

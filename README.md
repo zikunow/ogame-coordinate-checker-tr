@@ -29,6 +29,10 @@ Bu depo yalnızca Türkiye (TR) verilerini indirir ve yayımlar. İzin verilen 1
 
 Evren 1, lobi API’sinde `Evr1` olarak adlandırılır. Arayüzde `Evren 1` gösterilir. Liste dışındaki Türkiye evrenleri ve bütün RU sunucuları hariçtir. Testler izin listesini, TR API adreslerini ve veri kimliğini doğrular.
 
+## Dil seçimi
+
+Sağ üstteki TR / RU anahtarı arayüz dilini değiştirir. Rusça arayüz `ru.html` sayfasındadır; iki dil de yalnızca aynı Türkiye verilerini kullanır. Seçilen oyuncu ve evrenler korunur. Rusça dosyalar `scripts/build_locales.py` ve `scripts/locales/ru.json` ile üretilir.
+
 ## Kullanım
 
 1. Kendi evrenini seç.

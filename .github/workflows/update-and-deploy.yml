@@ -32,6 +32,7 @@ jobs:
           python-version: '3.12'
       - name: Check code and parser
         run: |
+          python scripts/build_locales.py
           npm run check
           python -m unittest discover -s tests -p 'test_*.py'
       - name: Download official TR API snapshots
@@ -42,7 +43,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add site/data
+          git add site/data site/ru.html site/app.ru.js site/core.ru.js
           if ! git diff --cached --quiet; then
             git commit -m 'data: refresh public OGame TR snapshots'
             git push origin HEAD:main
