@@ -1,0 +1,20 @@
+{
+  "community": "tr",
+  "defaultUniverse": 1,
+  "universes": [
+    {"number":1,"name":"Evren 1"},
+    {"number":190,"name":"Lacerta"},
+    {"number":251,"name":"Vela"},
+    {"number":252,"name":"Wurren"},
+    {"number":259,"name":"Delphinus"},
+    {"number":260,"name":"Eris"},
+    {"number":261,"name":"Fafnir"},
+    {"number":262,"name":"Grus"},
+    {"number":263,"name":"Hercules"},
+    {"number":264,"name":"Imai"},
+    {"number":265,"name":"Jishui"},
+    {"number":266,"name":"Keid"},
+    {"number":267,"name":"Lyra"},
+    {"number":268,"name":"Mars"}
+  ]
+}

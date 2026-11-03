@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a101c">
+  <meta name="description" content="OGame Türkiye birleşmesinde koordinatlarınızın dolu olma ihtimalini kontrol edin. Erken taşınmayı veya ücretsiz yer değiştirme için beklemeyi değerlendirin.">
+  <title>Koordinatlar — OGame TR</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css?v=20261103-tr-v1">
+  <script type="module" src="./app.js?v=20261103-tr-v1"></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Koordinatlar — ana sayfa"><img src="./icon.svg" width="34" height="34" alt=""><span>KOORDİNATLAR <small>OGAME / TR</small></span></a>
+      <a class="source-link" href="https://github.com/zikunow/ogame-coordinate-checker-tr" target="_blank" rel="noopener noreferrer">Açık kaynak <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+      <section class="intro">
+        <h1>Birleşme sonrası koordinatlar</h1>
+        <p>Birleşmede koordinatlarının dolu olma ihtimalini kontrol et. Konumlarını korumak için erken taşınmayı veya ücretsiz yer değiştirme için beklemeyi değerlendir.</p>
+      </section>
+      <section class="search-panel" aria-labelledby="search-title">
+        <h2 id="search-title" class="sr-only">Oyuncu seçimi</h2>
+        <form id="search-form">
+          <div class="field universe-field"><label for="universe">Kendi evrenin</label><select id="universe" disabled><option>Yükleniyor…</option></select></div>
+          <div class="field player-field"><label for="player-search">Oyuncu adı veya ID</label><div class="search-wrap"><input id="player-search" type="search" role="combobox" aria-autocomplete="list" aria-controls="player-options" aria-expanded="false" autocomplete="off" spellcheck="false" placeholder="Oyuncu adını yaz…" disabled><ul id="player-options" role="listbox" hidden></ul></div></div>
+          <button id="check" type="submit" class="primary" disabled>Koordinatları kontrol et <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="selection-bar"><div id="selected-player" aria-live="polite">Evrenini seç ve oyuncunu bul.</div><button id="example" class="text-button" type="button" disabled>Örnek oyuncu</button></div>
+        <details class="target-picker" id="target-picker"><summary>Kontrol edilecek evrenler <span id="target-count"></span></summary><div class="target-toolbar"><button type="button" data-preset="all">Tümünü seç</button><button type="button" data-preset="none">Seçimi temizle</button></div><div id="targets" class="targets"></div><p class="micro">Yalnızca Türkiye birleşme listesindeki 14 evren. Kendi evrenin otomatik olarak hariç tutulur. Evren sınırları dışındaki koordinatlar ayrıca belirtilir.</p></details>
+      </section>
+      <div id="message" class="message" role="status" aria-live="polite">Evren listesi yükleniyor…</div>
+      <section id="results" class="results" hidden aria-labelledby="results-title">
+        <div class="results-heading"><div><div class="eyebrow">KONTROL SONUCU</div><h2 id="results-title"></h2><p id="results-description"></p></div><div class="result-actions"><button type="button" id="share">Bağlantıyı kopyala</button><button type="button" id="export">CSV indir</button></div></div>
+        <div id="metrics" class="metrics"></div>
+        <div class="legend"><span><i class="dot active"></i>Aktif*</span><span><i class="dot inactive"></i>İnaktif</span><span><i class="dot vacation"></i>Tatil</span><span><i class="dot unknown"></i>Bilinmiyor</span><span class="scroll-hint">Tabloyu sağa kaydırabilirsin →</span></div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Evrenlere göre koordinatlar. Yatay kaydırma"><table id="comparison"><caption class="sr-only">Seçilen evrenlerde gezegen koordinatlarının doluluk durumu</caption><thead></thead><tbody></tbody></table></div>
+        <p class="micro footnote">* Aktif, API üzerinde özel durum işareti olmadığı anlamına gelir; çevrimiçi demek değildir. Tatil modu, inaktifliğe göre önceliklidir: gruplar çakışmaz. Sayılar benzersiz kişileri değil, evrenlerdeki dolu konumları gösterir.</p>
+        <details class="data-notes"><summary>Veri tarihleri ve kaynaklar</summary><p>Gezegen haritası genellikle haftada bir, oyuncu durumları günde bir güncellenir. Boş, yayımlanan API kaydında gezegen bulunmadığı anlamına gelir. Oyuncular daha sonra taşınmış veya kolonileşmiş olabilir. Aylar hesaba katılmaz.</p><div id="freshness"></div></details>
+      </section>
+      <section id="empty-state" class="empty-state" aria-label="Kontrol nasıl çalışır"><span class="orbit-mark" aria-hidden="true">◎</span><div><h2>Onlarca sekme yerine tek kontrol</h2><p>Solda koordinatlar, yanında özet; her evrende sahipler, durumlar ve sıralama. Veriler önceden indirilir, oyuna giriş gerekmez.</p></div></section>
+    </main>
+    <footer><span>Bağımsız topluluk aracı. OGame — Gameforge.</span><span id="updated-at">Resmî API verileri</span></footer>
+  </div>
+</body>
+</html>
